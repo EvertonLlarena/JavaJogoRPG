@@ -1,0 +1,171 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+public class Guia3 extends JPanel {
+
+    private GameExemple game;
+
+    public Guia3(GameExemple game){
+        this.game = game;
+        setLayout(null);
+
+        game.hpPlayerLabel = new JLabel();
+        game.hpPlayerLabel.setBounds(10, 10, 100, 20);
+        game.hpPlayerLabel.setForeground(Color.RED);
+
+        game.inventoryLabel = new JLabel("Inventário: Espada ");
+        game.inventoryLabel.setBounds(10, 30, 200, 20);
+        game.inventoryLabel.setForeground(Color.RED);
+
+        add(game.hpPlayerLabel);
+        add(game.inventoryLabel);
+        game.playerStatus();
+
+        game.dialogoText = new JTextArea();
+        game.dialogoText.setBounds(150, 50, 400, 50);
+        //dialogoText.setBackground(new Color(0, 0, 0, 140));
+        game.dialogoText.setForeground(Color.WHITE);
+        game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
+        game.dialogoText.setEditable(false);
+        game.dialogoText.setLineWrap(true);
+        game.dialogoText.setWrapStyleWord(true);
+        game.dialogoText.setOpaque(false);
+
+        add(game.dialogoText);
+
+        GerenciadorDeDialogos dialogosGuia3 = new GerenciadorDeDialogos(new String[]{
+                "Olá, eu sou o personagem 1.",
+                "Legal te conhecer! Eu sou o personagem 2."
+
+        });
+
+        game.dialogoText.setText(dialogosGuia3.getDialogoAtual());
+
+        InputMap inputMap = getInputMap(WHEN_IN_FOCUSED_WINDOW);
+        ActionMap actionMap = getActionMap();
+
+        inputMap.put(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, 0), "avancarDialogo");
+        actionMap.put("avancarDialogo", new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (dialogosGuia3.hasNextDialogo()) {
+                    dialogosGuia3.avancarDialogo();
+                    game.dialogoText.setText(dialogosGuia3.getDialogoAtual());
+                } else {
+                    ImageIcon lampiaoIcon = new ImageIcon("D:\\outroJavaJogo/imagens/lampiao.png");
+                    JLabel lampiao = new JLabel(lampiaoIcon);
+                    lampiao.setBounds(285, 440, lampiaoIcon.getIconWidth(), lampiaoIcon.getIconHeight());
+                    lampiao.addMouseListener(new MouseAdapter() {
+                        public void mouseClicked(MouseEvent evt) {
+                            game.dialogoText.setText("Você escolheu LAMPIÃO como seu item!");
+                            game.inventoryLabel.setText("Inventário: Espada, Lampiao");
+
+                            if(game.botaoContinuarAtual != null){
+                                remove(game.botaoContinuarAtual);
+                            }
+
+                            JButton botao1 = new JButton("Continuar");
+                            botao1.setBounds(850, 300, 150, 70);
+                            botao1.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    game.nomeItem = "Lampiao";
+                                    game.exibirBatalha3();
+                                }
+                            });
+                            add(botao1);
+
+                            revalidate();
+                            repaint();//evita botao escondido!!!
+
+                            game.botaoContinuarAtual = botao1;
+
+                        }
+                    });
+
+                    ImageIcon escudoIcon = new ImageIcon("D:\\outroJavaJogo/imagens/escudo.png");
+                    JLabel escudo = new JLabel(escudoIcon);
+                    escudo.setBounds(435, 440, escudoIcon.getIconWidth(), escudoIcon.getIconHeight());
+                    escudo.addMouseListener(new MouseAdapter() {
+                        public void mouseClicked(MouseEvent evt) {
+                            game.dialogoText.setText("Você escolheu ESCUDO como seu item!");
+                            game.inventoryLabel.setText("Inventário: Espada, Escudo");
+
+                            if(game.botaoContinuarAtual != null){
+                                remove(game.botaoContinuarAtual);
+                            }
+
+                            JButton botao2 = new JButton("Continuar");
+                            botao2.setBounds(850, 460, 150, 70);
+                            botao2.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    game.nomeItem = "ESCUDO";
+                                    game.exibirBatalha3();
+                                }
+                            });
+                            add(botao2);
+
+                            revalidate();
+                            repaint();//evita botao escondido!!!
+
+                            game.botaoContinuarAtual = botao2;
+
+                        }
+                    });
+
+                    ImageIcon dinheiroIcon = new ImageIcon("D:\\outroJavaJogo/imagens/sacoDeDinheiro.png");
+                    JLabel sacoDeDinheiro = new JLabel(dinheiroIcon);
+                    sacoDeDinheiro.setBounds(585, 440, dinheiroIcon.getIconWidth(), dinheiroIcon.getIconHeight());
+                    sacoDeDinheiro.addMouseListener(new MouseAdapter() {
+                        public void mouseClicked(MouseEvent evt) {
+                            game.dialogoText.setText("Você escolheu SACO DE DINHEIRO como seu item!");
+                            game.inventoryLabel.setText("Inventário: Espada, Saco de dinheiro");
+
+                            if(game.botaoContinuarAtual != null){
+                                game.remove(game.botaoContinuarAtual);
+                            }
+
+                            JButton botao3 = new JButton("Continuar");
+                            botao3.setBounds(850, 680, 150, 70);
+                            botao3.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    game.nomeItem = "Saco de dinheiro";
+                                    game.exibirBatalha3();
+                                }
+                            });
+                            add(botao3);
+
+                            revalidate();
+                            repaint();//evita botao escondido!!!
+
+                            game.botaoContinuarAtual = botao3;
+
+                        }
+                    });
+                    add(lampiao);
+                    add(escudo);
+                    add(sacoDeDinheiro);
+
+                    revalidate();
+                    repaint();
+                    requestFocus();
+
+                }
+
+            }
+        });
+
+
+
+    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        // imagem do fundo do jogo usando paint component
+        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/conversaGuia3.png");
+        Image image = imageIcon.getImage();
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+    }
+}
