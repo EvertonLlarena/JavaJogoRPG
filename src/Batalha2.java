@@ -4,9 +4,6 @@ import java.awt.event.*;
 public class Batalha2 extends JPanel{
 
     private GameExemple game;
-    ;
-
-
 
     public Batalha2(GameExemple game){
         this.game = game;
@@ -45,7 +42,7 @@ public class Batalha2 extends JPanel{
 
         GerenciadorDeDialogos dialogosBatalha2 = new GerenciadorDeDialogos(new String[]{
                 "Yuki-Onna: Olá, queridinho! o que trás um ser tão jovem, forte, lindo... APETITOSO, como você por aqui."+
-                        "Se perdeu do caminho de casa foi? Que peninha!",
+                        " Se perdeu do caminho de casa foi? Que peninha!",
                 ""+game.nomeJogador+"Sai pra lá, coisa feia!",
                 "Yuki-Onna: Aaah, não seja tão rude. Venha aqui perto de mim e me deixei saborear essa sua carne... pitoresca.",
                 ""+game.nomeJogador+"A única coisa que você irá saborear é o gosto da minha espada em sua boca, maldita!"
@@ -114,7 +111,7 @@ public class Batalha2 extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // imagem do fundo do jogo usando paint component
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/batalha2.png");
+        ImageIcon imageIcon = new ImageIcon("./imagens/batalha2.png");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
     }

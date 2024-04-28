@@ -20,7 +20,7 @@ public class InicioJogo extends JPanel{
         add(game.dialogoText);
 
         GerenciadorDeDialogos dialogosPrologo = new GerenciadorDeDialogos(new String[]{
-                "Vô Charles: Há quanto tempo, meu neto. Vejo que você crecsceu e se tornou um jovem forte. O que trás você de volta a casa do seu velho?",
+                "Vô Charles: Há quanto tempo, meu neto. Vejo que você cresceu e se tornou um jovem forte. O que trás você de volta a casa do seu velho?",
                 ""+game.nomeJogador+": Prazer em revê-lo, vovô Charles! " +
                         "Recentemente me veio a mente as histórias que o senhor me contava sobre os monstros que coabitam essas montanhas. Eles ainda existem?",
                 "Vô Charles: Haha, então é por isso que você veio. Me lembro muito bem de como você morria de medo desses monstros quando criança." +
@@ -29,7 +29,7 @@ public class InicioJogo extends JPanel{
                         "Eu irei atrás desses monstros que restam, vovô. E irei extingui-los desse lugar de uma por todas.",
                 "Vô Charles: Se é isso que deseja, meu neto, permita-me lhe dar esta Espada, para ajudá-lo em sua jornada."+
                         "Tome muito cuidado, nessas montanhas, a morte é o que menos pior lhe pode acontecer.",
-                ""+game.nomeJogador+": Não se preucupe, vovô. Eu irei voltar são e salvo!"
+                ""+game.nomeJogador+": Não se preocupe, vovô. Eu irei voltar são e salvo!"
 
         });
 
@@ -65,7 +65,7 @@ public class InicioJogo extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/inicioCabanaHistoria.jpeg");
+        ImageIcon imageIcon = new ImageIcon("./imagens/inicioCabanaHistoria.jpeg");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
     }

@@ -1,12 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Guia2 extends JPanel {
+public class Guia2 extends MasterClass {
 
     private GameExemple game;
 
     public Guia2(GameExemple game){
         this.game = game;
+        this.nomeDoPersonagem = game.nomeJogador;
+        this.nomeDoCenario = "Guia2";
         setLayout(null);
 
         game.hpPlayerLabel = new JLabel();
@@ -17,6 +19,7 @@ public class Guia2 extends JPanel {
         game.inventoryLabel.setBounds(10, 30, 200, 20);
         game.inventoryLabel.setForeground(Color.RED);
 
+        add(new SaveButton(game, this));
         add(game.hpPlayerLabel);
         add(game.inventoryLabel);
         game.playerStatus();
@@ -36,11 +39,11 @@ public class Guia2 extends JPanel {
                 "Guia: Muito bem, jovem guerreiro! Você sobreviveu ao encontro contra o aterrorizante Wendingo.",
                 ""+game.nomeJogador+": Arg, olá de novo. Você sussurra baixinho: 'Obrigado pela ajuda'.",
                 "Guia: Disponha. Agora voce enfrentará uma monstra maligna, cheia de ódio e rancor dentro de si. Esse ser se chama Yuki-Onna!",
-                "Deixe me contar um pouco sobre a história dela: ",
-                "Nem todos que tentaram fugir da nevasca conseguiram. O clima ficou confuso, e o ambiente como um labirinto.",
-                "Uma moça e seu grupo estavam nessa situação, até ela ter se machucado na peregrinação."+
-                        "Seus companheiros, vendo-a como um estorvo e desperdício de recursos, abandonaram-na.",
-                "Ela morreu sozinha e em agonia, querendo apenas que sua dor parasse",
+                "Guia: Deixe me contar um pouco sobre a história dela.",
+                "Guia: Nem todos que tentaram fugir da nevasca conseguiram. O clima ficou confuso, e o ambiente como um labirinto.",
+                "Guia: Uma moça e seu grupo estavam nessa situação, até ela ter se machucado na peregrinação."+
+                        " Seus companheiros, vendo-a como um estorvo e desperdício de recursos, abandonaram-na.",
+                "Guia: Ela morreu sozinha e em agonia, querendo apenas que sua dor parasse",
                 ""+game.nomeJogador+": Tenso!",
                 "Guia: Bom, contra ela eu posso lhe ajudar oferecendo mais 3 itens, escolha-os sabiamente: "
 
@@ -59,7 +62,7 @@ public class Guia2 extends JPanel {
                     dialogosGuia2.avancarDialogo();
                     game.dialogoText.setText(dialogosGuia2.getDialogoAtual());
                 } else {
-                    ImageIcon velaIcon = new ImageIcon("D:\\outroJavaJogo/imagens/velaCerimonial.png");
+                    ImageIcon velaIcon = new ImageIcon("./imagens/velaCerimonial.png");
                     JLabel velaCerimonial = new JLabel(velaIcon);
                     velaCerimonial.setBounds(285, 440, velaIcon.getIconWidth(), velaIcon.getIconHeight());
                     velaCerimonial.addMouseListener(new MouseAdapter() {
@@ -90,7 +93,7 @@ public class Guia2 extends JPanel {
                         }
                     });
 
-                    ImageIcon talismaIcon = new ImageIcon("D:\\outroJavaJogo/imagens/talisma.png");
+                    ImageIcon talismaIcon = new ImageIcon("./imagens/talisma.png");
                     JLabel talisma = new JLabel(talismaIcon);
                     talisma.setBounds(435, 440, talismaIcon.getIconWidth(), talismaIcon.getIconHeight());
                     talisma.addMouseListener(new MouseAdapter() {
@@ -121,7 +124,7 @@ public class Guia2 extends JPanel {
                         }
                     });
 
-                    ImageIcon kitIcon = new ImageIcon("D:\\outroJavaJogo/imagens/kitMedico.png");
+                    ImageIcon kitIcon = new ImageIcon("./imagens/kitMedico.png");
                     JLabel kitMedico = new JLabel(kitIcon);
                     kitMedico.setBounds(585, 440, kitIcon.getIconWidth(), kitIcon.getIconHeight());
                     kitMedico.addMouseListener(new MouseAdapter() {
@@ -171,7 +174,7 @@ public class Guia2 extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // imagem do fundo do jogo usando paint component
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/conversaGuia2.png");
+        ImageIcon imageIcon = new ImageIcon("./imagens/conversaGuia2.png");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
     }

@@ -29,7 +29,7 @@ class CadastroJogador extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/menuInicialImagem.jpeg");
+        ImageIcon imageIcon = new ImageIcon("./imagens/menuInicialImagem.jpeg");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
     }

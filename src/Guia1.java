@@ -1,12 +1,13 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Guia1 extends JPanel {
-
+public class Guia1 extends MasterClass {
     private GameExemple game;
 
     public Guia1(GameExemple game){
         this.game = game;
+        this.nomeDoPersonagem = game.nomeJogador;
+        this.nomeDoCenario = "Guia1";
         setLayout(null);
 
         game.hpPlayerLabel = new JLabel();
@@ -17,6 +18,7 @@ public class Guia1 extends JPanel {
         game.inventoryLabel.setBounds(10, 30, 200, 20);
         game.inventoryLabel.setForeground(Color.RED);
 
+        add(new SaveButton(game, this));
         add(game.hpPlayerLabel);
         add(game.inventoryLabel);
         game.playerStatus();
@@ -36,18 +38,18 @@ public class Guia1 extends JPanel {
                 ""+game.nomeJogador+": Quem é você? Por acaso é um dos monstros que por aqui vagueiam?",
                 "Guia: Não, para a sua sorte."+"Os monstros que por aqui vivem são muitos poderosos, você não teria a mínima chance contra eles usando apenas essa espada." +
                         "Um dos mais terriveis, Wendingo, é o que você provavelmente enfrentará primeiro. vou lhe contar um pouco sobre a história dele: ",
-                "Há muito tempo atrás, houve uma intensa nevasca nessas montanhas de gelo, que obrigou boa parte dos moradores a procurarem outro lugar para morar.",
-                "Mas nem todos os moradores da montanha desistiram de morar lá depois que a nevasca começou. "+
+                "Guia: Há muito tempo atrás, houve uma intensa nevasca nessas montanhas de gelo, que obrigou boa parte dos moradores a procurarem outro lugar para morar.",
+                "Guia: Mas nem todos os moradores da montanha desistiram de morar lá depois que a nevasca começou. "+
                         "Um homem persistiu com tudo que tinha para ficar lá, mas os recursos estavam ficando escassos. ",
-                "Ele teve de recorrer a viver na miséria para sobreviver, se sustentando apenas comendo cascas de árvore.",
-                "Quando ele finalmente decidiu ir embora, já era tarde demais. " +
+                "Guia: Ele teve de recorrer a viver na miséria para sobreviver, se sustentando apenas comendo cascas de árvore.",
+                "Guia: Quando ele finalmente decidiu ir embora, já era tarde demais. " +
                         "Ele sucumbiu à fome, desejando apenas por uma refeição de qualidade.",
                 ""+game.nomeJogador+": Tá, mas por que você está me contando tudo isso? quem é você afinal?",
                 "Guia: pode me chamar de Guia, eu irei guiá-lo em sua jornada para derrotar os monstros que aqui habitam, e trazer paz a suas almas.",
                 ""+game.nomeJogador+": E como você planeja me ajudar? Você parece mais uma assombração que não derrotaria nem uma criança, hahaha.",
                 "Guia: Ah, meu caro jovem, vejo que você tem muito o que aprender ainda.",
                 ""+game.nomeJogador+": Tá, deixa de papo furado e me diz logo como você planeja ser útil para mim.",
-                "Guia: Tenho em minha disposição itens que vão lhe ajudar em sua batalha contrar os mosntros dessa montaanha, se você optar em usá-los.",
+                "Guia: Tenho em minha disposição itens que vão lhe ajudar em sua batalha contrar os monstros dessa montanha, se você optar em usá-los.",
                 "Guia: Lhe darei 3 opções de item, escolha com sabedoria e siga em frente em sua trajetória: "
 
 
@@ -67,7 +69,7 @@ public class Guia1 extends JPanel {
                     dialogosGuia1.avancarDialogo();
                     game.dialogoText.setText(dialogosGuia1.getDialogoAtual());
                 } else {
-                    ImageIcon armadilhaIcon = new ImageIcon("D:\\outroJavaJogo/imagens/armadilha.png");
+                    ImageIcon armadilhaIcon = new ImageIcon("./imagens/armadilha.png");
                     JLabel armadilha = new JLabel(armadilhaIcon);
                     armadilha.setBounds(285, 440, armadilhaIcon.getIconWidth(), armadilhaIcon.getIconHeight());
                     armadilha.addMouseListener(new MouseAdapter() {
@@ -98,7 +100,7 @@ public class Guia1 extends JPanel {
                         }
                     });
 
-                    ImageIcon armaduraIcon = new ImageIcon("D:\\outroJavaJogo/imagens/armadura.png");
+                    ImageIcon armaduraIcon = new ImageIcon("./imagens/armadura.png");
                     JLabel armadura = new JLabel(armaduraIcon);
                     armadura.setBounds(435, 440, armaduraIcon.getIconWidth(), armaduraIcon.getIconHeight());
                     armadura.addMouseListener(new MouseAdapter() {
@@ -129,7 +131,7 @@ public class Guia1 extends JPanel {
                         }
                     });
 
-                    ImageIcon coxaIcon = new ImageIcon("D:\\outroJavaJogo/imagens/coxaDeGalinha.png");
+                    ImageIcon coxaIcon = new ImageIcon("./imagens/coxaDeGalinha.png");
                     JLabel coxa = new JLabel(coxaIcon);
                     coxa.setBounds(585, 440, coxaIcon.getIconWidth(), coxaIcon.getIconHeight());
                     coxa.addMouseListener(new MouseAdapter() {
@@ -179,7 +181,7 @@ public class Guia1 extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // imagem do fundo do jogo usando paint component
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/conversaGuia1.png");
+        ImageIcon imageIcon = new ImageIcon("./imagens/conversaGuia1.png");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
     }

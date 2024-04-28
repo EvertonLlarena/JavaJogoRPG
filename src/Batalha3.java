@@ -5,8 +5,6 @@ public class Batalha3 extends JPanel{
 
     private GameExemple game;
 
-
-
     public Batalha3(GameExemple game){
         this.game = game;
         setLayout(null);
@@ -114,7 +112,7 @@ public class Batalha3 extends JPanel{
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // imagem do fundo do jogo usando paint component
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/batalha3.png");
+        ImageIcon imageIcon = new ImageIcon("./imagens/batalha3.png");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
     }

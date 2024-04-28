@@ -65,7 +65,7 @@ public class Fim extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // imagem do fundo do jogo usando paint component
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/prologo.jpeg");
+        ImageIcon imageIcon = new ImageIcon("./imagens/prologo.jpeg");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
 

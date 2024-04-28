@@ -34,7 +34,7 @@ public class GameExemple extends JFrame {
 
     //--------------------------------------------------------------------------------------------------------------------------------------
     private void exibirTelaInicial() {
-        JPanel telaInicial = new TelaInicial();
+        JPanel telaInicial = new TelaInicial(this);
         setContentPane(telaInicial);
     }
 

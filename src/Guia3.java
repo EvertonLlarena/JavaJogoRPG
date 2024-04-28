@@ -1,12 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-public class Guia3 extends JPanel {
+public class Guia3 extends MasterClass {
 
     private GameExemple game;
 
     public Guia3(GameExemple game){
         this.game = game;
+        this.nomeDoPersonagem = game.nomeJogador;
+        this.nomeDoCenario = "Guia3";
         setLayout(null);
 
         game.hpPlayerLabel = new JLabel();
@@ -17,6 +19,7 @@ public class Guia3 extends JPanel {
         game.inventoryLabel.setBounds(10, 30, 200, 20);
         game.inventoryLabel.setForeground(Color.RED);
 
+        add(new SaveButton(game, this));
         add(game.hpPlayerLabel);
         add(game.inventoryLabel);
         game.playerStatus();
@@ -35,14 +38,14 @@ public class Guia3 extends JPanel {
         GerenciadorDeDialogos dialogosGuia3 = new GerenciadorDeDialogos(new String[]{
                 ""+game.nomeJogador+": (Fingindo supresa) É claro que você está por aqui.",
                 "Guia: Mandou bem em sua batalha contra a Yuki-Onno, ela não era uma gracinha?",
-                ""+game.nomeJogador+": Sai pra lá, aquela coisa era feia que doia.",
-                "Guia: Agora só lhe resta um ultimo adversário, e o nome dele é Morozko." +
-                        "Vou lhe contar um pouca sobre o passado dele: ",
-                "Os que persistiam em ficar na montanha não conseguiram sobreviver vivendo honestamente." +
+                ""+game.nomeJogador+": Sai pra lá, aquela coisa era feia que doía.",
+                "Guia: Agora só lhe resta um último adversário, e o nome dele é Morozko." +
+                        "Vou lhe contar um pouca sobre o passado dele.",
+                "Guia: Os que persistiam em ficar na montanha não conseguiram sobreviver vivendo honestamente. " +
                         "Eles forçaram outros moradores a ficarem junto com eles, extorquindo seus bens e ameaçando matá-los caso desobedecessem.",
-                "Um velho senhor foi uma das vítimas desses bandidos, que retiraram dele tudo que tinha de valor." +
-                        "Ele morreu sem qualquer dinheiro ou bens, ansiando puramente em ter de volta aquilo que lhe foi roubado!",
-                "Guia: tome cuidado com esse inimigo, ele é perigoso. Aqui, escolha dentre esses 3 itens para lhe ajudar em sua batalha: "
+                "Guia: Um velho senhor foi uma das vítimas desses bandidos, que retiraram dele tudo que tinha de valor." +
+                        " Ele morreu sem qualquer dinheiro ou bens, ansiando puramente em ter de volta aquilo que lhe foi roubado!",
+                "Guia: Tome cuidado com esse inimigo, ele é perigoso. Aqui, escolha dentre esses 3 itens para lhe ajudar em sua batalha: "
 
         });
 
@@ -59,7 +62,7 @@ public class Guia3 extends JPanel {
                     dialogosGuia3.avancarDialogo();
                     game.dialogoText.setText(dialogosGuia3.getDialogoAtual());
                 } else {
-                    ImageIcon lampiaoIcon = new ImageIcon("D:\\outroJavaJogo/imagens/lampiao.png");
+                    ImageIcon lampiaoIcon = new ImageIcon("./imagens/lampiao.png");
                     JLabel lampiao = new JLabel(lampiaoIcon);
                     lampiao.setBounds(285, 440, lampiaoIcon.getIconWidth(), lampiaoIcon.getIconHeight());
                     lampiao.addMouseListener(new MouseAdapter() {
@@ -90,7 +93,7 @@ public class Guia3 extends JPanel {
                         }
                     });
 
-                    ImageIcon escudoIcon = new ImageIcon("D:\\outroJavaJogo/imagens/escudo.png");
+                    ImageIcon escudoIcon = new ImageIcon("./imagens/escudo.png");
                     JLabel escudo = new JLabel(escudoIcon);
                     escudo.setBounds(435, 440, escudoIcon.getIconWidth(), escudoIcon.getIconHeight());
                     escudo.addMouseListener(new MouseAdapter() {
@@ -121,7 +124,7 @@ public class Guia3 extends JPanel {
                         }
                     });
 
-                    ImageIcon dinheiroIcon = new ImageIcon("D:\\outroJavaJogo/imagens/sacoDeDinheiro.png");
+                    ImageIcon dinheiroIcon = new ImageIcon("./imagens/sacoDeDinheiro.png");
                     JLabel sacoDeDinheiro = new JLabel(dinheiroIcon);
                     sacoDeDinheiro.setBounds(585, 440, dinheiroIcon.getIconWidth(), dinheiroIcon.getIconHeight());
                     sacoDeDinheiro.addMouseListener(new MouseAdapter() {
@@ -171,7 +174,7 @@ public class Guia3 extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // imagem do fundo do jogo usando paint component
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/conversaGuia3.png");
+        ImageIcon imageIcon = new ImageIcon("./imagens/conversaGuia3.png");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
     }

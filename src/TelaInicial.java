@@ -3,7 +3,8 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class TelaInicial extends JPanel {
-    public TelaInicial() {
+    private static final long serialVersionUID = 6529685098267757690L;
+    public TelaInicial(GameExemple game) {
         setLayout(null);
 
         JButton novoJogoButton = new JButton("Novo Jogo");
@@ -16,7 +17,8 @@ public class TelaInicial extends JPanel {
                 game.exibirTelaCadastroJogador();
             }
         });
-        JButton carregarJogoButton = new JButton("Carregar Jogo");
+        CarregamentoButton carregarJogoButton = new CarregamentoButton(game, this);
+        carregarJogoButton.setText("Carregar Jogo");
         carregarJogoButton.setBounds(412, 450, 200, 50);
         add(novoJogoButton);
         add(carregarJogoButton);
@@ -26,7 +28,7 @@ public class TelaInicial extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // imagem do fundo do jogo usando paint component
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/menuInicialImagem.jpeg");
+        ImageIcon imageIcon = new ImageIcon("./imagens/menuInicialImagem.jpeg");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
     }

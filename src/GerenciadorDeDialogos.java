@@ -1,8 +1,10 @@
-public class GerenciadorDeDialogos {
+import java.io.Serializable;
+
+public class GerenciadorDeDialogos implements Serializable{
     private String[] dialogos;
     private int currentDialogIndex;
 
-    public GerenciadorDeDialogos(String[] dialogos) {
+    public GerenciadorDeDialogos(String[] dialogos){
         this.dialogos = dialogos;
         this.currentDialogIndex = 0;
     }

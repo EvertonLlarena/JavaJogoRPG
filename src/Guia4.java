@@ -33,7 +33,7 @@ public class Guia4 extends JPanel {
         add(game.dialogoText);
 
         GerenciadorDeDialogos dialogosGuia4 = new GerenciadorDeDialogos(new String[]{
-                "Guia: Meu parabéns, meu caro jovem. Você consegui derrotar todos os monstros que ainda restavam por essas montanhas." +
+                "Guia: Meu parabéns, meu caro jovem. Você conseguiu derrotar todos os monstros que ainda restavam por essas montanhas." +
                         "Agora você pode voltar para casa, e eu irei seguir em minha trilha sem destino.",
                 ""+game.nomeJogador+": Sabe, o meu avô me disse uma vez que quando se navega sem destino, nenhum vento é favorável."+
                         " Obrigado por guiar meu caminho.",
@@ -79,7 +79,7 @@ public class Guia4 extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         // imagem do fundo do jogo usando paint component
-        ImageIcon imageIcon = new ImageIcon("D:\\outroJavaJogo/imagens/conversaGuia4.png");
+        ImageIcon imageIcon = new ImageIcon("./imagens/conversaGuia4.png");
         Image image = imageIcon.getImage();
         g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
     }
