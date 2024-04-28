@@ -4,7 +4,6 @@ import java.awt.event.*;
 public class Batalha3 extends JPanel{
 
     private GameExemple game;
-    private boolean botoesAdicionados = false;
 
 
 
@@ -32,9 +31,8 @@ public class Batalha3 extends JPanel{
 
 
         game.dialogoText = new JTextArea();
-        game.dialogoText.setBounds(150, 50, 400, 50);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        game.dialogoText.setForeground(Color.WHITE);
+        game.dialogoText.setBounds(150, 50, 800, 250);
+        game.dialogoText.setForeground(Color.ORANGE);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
         game.dialogoText.setLineWrap(true);
@@ -45,8 +43,12 @@ public class Batalha3 extends JPanel{
 
 
         GerenciadorDeDialogos dialogosBatalha3 = new GerenciadorDeDialogos(new String[]{
-                "Olá, eu sou o personagem 1.",
-                "Legal te conhecer! Eu sou o personagem 2."
+                ""+game.nomeJogador+": Então você é o tal do Morozko!",
+                "Morozko: Quem ousa me pertubar neste momento!? Mas olha só, uma criançinha perdida. Está procurando a sua mamãe?",
+                ""+game.nomeJogador+": NÂO ME CHAME DE CRIANÇA! A única coisa que eu procuro é enfiar a minha espada no meio da sua alma, seu verme.",
+                "Morozko: Seus pais não te ensinaram a respeitar os mais velhos, seu moleque!"+
+                        " Vai pagar caro por essa sua insolência.",
+                ""+game.nomeJogador+"Vem, monstro!"
 
         });
 
@@ -63,7 +65,7 @@ public class Batalha3 extends JPanel{
                     dialogosBatalha3.avancarDialogo();
                     game.dialogoText.setText(dialogosBatalha3.getDialogoAtual());
                 } else {
-                    if (!botoesAdicionados) {
+                    if (!game.botoesAdicionados3) {
                         game.posicao = "batalha3";
 
                         game.escolha1 = game.escolhaBotao();
@@ -100,7 +102,7 @@ public class Batalha3 extends JPanel{
                         add(game.escolha1);
                         add(game.escolha2);
 
-                        botoesAdicionados = true;
+                        game.botoesAdicionados3 = true;
                     }
                 }
 

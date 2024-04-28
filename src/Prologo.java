@@ -12,7 +12,6 @@ import java.awt.event.*;
 
         game.dialogoText = new JTextArea();
         game.dialogoText.setBounds(150, 50, 800, 150);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
         game.dialogoText.setForeground(Color.BLACK);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
@@ -22,9 +21,10 @@ import java.awt.event.*;
         add(game.dialogoText);
 
          GerenciadorDeDialogos dialogosPrologo = new GerenciadorDeDialogos(new String[]{
-                 "Prepare-se para começar sua aventura, " + game.nomeJogador +"!",
+                 "Prepare-se para começar sua aventura, " + game.nomeJogador +"! Aperte a tecla ENTER para passar os dialogos",
                  "Neste jogo você será um jovem destemido e valente, que fascinado pelas histórias de seu avô Charles, " +
-                         "decide iniciar uma jornada perigosa em busca de trazer de volta a paz que antigamente se fazia presente nas frias montanhas de Mount Seymour."
+                         "decide iniciar uma jornada perigosa em busca de trazer de volta a paz que antigamente se fazia presente nas frias montanhas de Mount Seymour.",
+                 "Certifique-se de apertar o botão continuar para progredir no jogo!"
 
 
          });

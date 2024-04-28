@@ -11,8 +11,7 @@ public class InicioJogo extends JPanel{
 
         game.dialogoText = new JTextArea();
         game.dialogoText.setBounds(150, 50, 800, 150);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        game.dialogoText.setForeground(Color.BLACK);
+        game.dialogoText.setForeground(Color.YELLOW);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
         game.dialogoText.setLineWrap(true);
@@ -21,10 +20,16 @@ public class InicioJogo extends JPanel{
         add(game.dialogoText);
 
         GerenciadorDeDialogos dialogosPrologo = new GerenciadorDeDialogos(new String[]{
-                "Prepare-se para começar sua aventura, " + game.nomeJogador +"!",
-                "Neste jogo você será um jovem destemido e valente, que fascinado pelas histórias de seu avô Charles, " +
-                        "decide iniciar uma jornada perigosa em busca de trazer de volta a paz que antigamente se fazia presente nas frias montanhas de Mount Seymour."
-
+                "Vô Charles: Há quanto tempo, meu neto. Vejo que você crecsceu e se tornou um jovem forte. O que trás você de volta a casa do seu velho?",
+                ""+game.nomeJogador+": Prazer em revê-lo, vovô Charles! " +
+                        "Recentemente me veio a mente as histórias que o senhor me contava sobre os monstros que coabitam essas montanhas. Eles ainda existem?",
+                "Vô Charles: Haha, então é por isso que você veio. Me lembro muito bem de como você morria de medo desses monstros quando criança." +
+                        "E sim, eles ainda existem, quer dizer, pelo menos 3 deles, o restante já se desvaneceram há algum tempo.",
+                ""+game.nomeJogador+": Então quer dizer que 3 deles ainda perambulam por essas gélidas montanhas. "+
+                        "Eu irei atrás desses monstros que restam, vovô. E irei extingui-los desse lugar de uma por todas.",
+                "Vô Charles: Se é isso que deseja, meu neto, permita-me lhe dar esta Espada, para ajudá-lo em sua jornada."+
+                        "Tome muito cuidado, nessas montanhas, a morte é o que menos pior lhe pode acontecer.",
+                ""+game.nomeJogador+": Não se preucupe, vovô. Eu irei voltar são e salvo!"
 
         });
 
@@ -46,7 +51,6 @@ public class InicioJogo extends JPanel{
                     continua.addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            System.out.println("funcionando!");
                             game.exibirGuia1();
 
                         }

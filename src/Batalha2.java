@@ -4,8 +4,7 @@ import java.awt.event.*;
 public class Batalha2 extends JPanel{
 
     private GameExemple game;
-
-    private boolean botoesAdicionados = false;
+    ;
 
 
 
@@ -33,9 +32,8 @@ public class Batalha2 extends JPanel{
 
 
         game.dialogoText = new JTextArea();
-        game.dialogoText.setBounds(150, 50, 400, 50);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        game.dialogoText.setForeground(Color.WHITE);
+        game.dialogoText.setBounds(150, 50, 800, 250);
+        game.dialogoText.setForeground(Color.ORANGE);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
         game.dialogoText.setLineWrap(true);
@@ -46,8 +44,11 @@ public class Batalha2 extends JPanel{
 
 
         GerenciadorDeDialogos dialogosBatalha2 = new GerenciadorDeDialogos(new String[]{
-                "Olá, eu sou o personagem 1.",
-                "Legal te conhecer! Eu sou o personagem 2."
+                "Yuki-Onna: Olá, queridinho! o que trás um ser tão jovem, forte, lindo... APETITOSO, como você por aqui."+
+                        "Se perdeu do caminho de casa foi? Que peninha!",
+                ""+game.nomeJogador+"Sai pra lá, coisa feia!",
+                "Yuki-Onna: Aaah, não seja tão rude. Venha aqui perto de mim e me deixei saborear essa sua carne... pitoresca.",
+                ""+game.nomeJogador+"A única coisa que você irá saborear é o gosto da minha espada em sua boca, maldita!"
 
         });
 
@@ -64,7 +65,7 @@ public class Batalha2 extends JPanel{
                     dialogosBatalha2.avancarDialogo();
                     game.dialogoText.setText(dialogosBatalha2.getDialogoAtual());
                 } else {
-                    if (!botoesAdicionados) {
+                    if (!game.botoesAdicionados2) {
                         game.posicao = "batalha2";
 
                         game.escolha1 = game.escolhaBotao();
@@ -101,7 +102,7 @@ public class Batalha2 extends JPanel{
                         add(game.escolha1);
                         add(game.escolha2);
 
-                        botoesAdicionados = true;
+                        game.botoesAdicionados2 = true;
                     }
                 }
 

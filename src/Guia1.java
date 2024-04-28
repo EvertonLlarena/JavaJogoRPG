@@ -22,9 +22,8 @@ public class Guia1 extends JPanel {
         game.playerStatus();
 
         game.dialogoText = new JTextArea();
-        game.dialogoText.setBounds(150, 50, 400, 50);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        game.dialogoText.setForeground(Color.WHITE);
+        game.dialogoText.setBounds(150, 50, 800, 300);
+        game.dialogoText.setForeground(Color.BLACK);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
         game.dialogoText.setLineWrap(true);
@@ -34,8 +33,24 @@ public class Guia1 extends JPanel {
         add(game.dialogoText);
 
         GerenciadorDeDialogos dialogosGuia1 = new GerenciadorDeDialogos(new String[]{
-                "Olá, eu sou o personagem 1.",
-                "Legal te conhecer! Eu sou o personagem 2."
+                ""+game.nomeJogador+": Quem é você? Por acaso é um dos monstros que por aqui vagueiam?",
+                "Guia: Não, para a sua sorte."+"Os monstros que por aqui vivem são muitos poderosos, você não teria a mínima chance contra eles usando apenas essa espada." +
+                        "Um dos mais terriveis, Wendingo, é o que você provavelmente enfrentará primeiro. vou lhe contar um pouco sobre a história dele: ",
+                "Há muito tempo atrás, houve uma intensa nevasca nessas montanhas de gelo, que obrigou boa parte dos moradores a procurarem outro lugar para morar.",
+                "Mas nem todos os moradores da montanha desistiram de morar lá depois que a nevasca começou. "+
+                        "Um homem persistiu com tudo que tinha para ficar lá, mas os recursos estavam ficando escassos. ",
+                "Ele teve de recorrer a viver na miséria para sobreviver, se sustentando apenas comendo cascas de árvore.",
+                "Quando ele finalmente decidiu ir embora, já era tarde demais. " +
+                        "Ele sucumbiu à fome, desejando apenas por uma refeição de qualidade.",
+                ""+game.nomeJogador+": Tá, mas por que você está me contando tudo isso? quem é você afinal?",
+                "Guia: pode me chamar de Guia, eu irei guiá-lo em sua jornada para derrotar os monstros que aqui habitam, e trazer paz a suas almas.",
+                ""+game.nomeJogador+": E como você planeja me ajudar? Você parece mais uma assombração que não derrotaria nem uma criança, hahaha.",
+                "Guia: Ah, meu caro jovem, vejo que você tem muito o que aprender ainda.",
+                ""+game.nomeJogador+": Tá, deixa de papo furado e me diz logo como você planeja ser útil para mim.",
+                "Guia: Tenho em minha disposição itens que vão lhe ajudar em sua batalha contrar os mosntros dessa montaanha, se você optar em usá-los.",
+                "Guia: Lhe darei 3 opções de item, escolha com sabedoria e siga em frente em sua trajetória: "
+
+
 
         });
 
@@ -57,7 +72,7 @@ public class Guia1 extends JPanel {
                     armadilha.setBounds(285, 440, armadilhaIcon.getIconWidth(), armadilhaIcon.getIconHeight());
                     armadilha.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            game.dialogoText.setText("Você escolheu ARMADILHA como seu item!");
+                            game.dialogoText.setText("Você escolheu ARMADILHA como seu item! Efeito: Dano aterrorizante." );
                             game.inventoryLabel.setText("Inventário: Espada, Armadilha");
 
                             if(game.botaoContinuarAtual != null){
@@ -88,7 +103,7 @@ public class Guia1 extends JPanel {
                     armadura.setBounds(435, 440, armaduraIcon.getIconWidth(), armaduraIcon.getIconHeight());
                     armadura.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            game.dialogoText.setText("Você escolheu ARMADURA como seu item!");
+                            game.dialogoText.setText("Você escolheu ARMADURA como seu item! Efeito: Resistência a dano.");
                             game.inventoryLabel.setText("Inventário: Espada, Armadura");
 
                             if(game.botaoContinuarAtual != null){
@@ -119,7 +134,7 @@ public class Guia1 extends JPanel {
                     coxa.setBounds(585, 440, coxaIcon.getIconWidth(), coxaIcon.getIconHeight());
                     coxa.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            game.dialogoText.setText("Você escolheu COXA DE GALINHA como seu item!");
+                            game.dialogoText.setText("Você escolheu COXA DE GALINHA como seu item! Efeito: Deliciosa.");
                             game.inventoryLabel.setText("Inventário: Espada, Coxa de galinha");
 
                             if(game.botaoContinuarAtual != null){

@@ -22,9 +22,8 @@ public class Guia3 extends JPanel {
         game.playerStatus();
 
         game.dialogoText = new JTextArea();
-        game.dialogoText.setBounds(150, 50, 400, 50);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        game.dialogoText.setForeground(Color.WHITE);
+        game.dialogoText.setBounds(150, 50, 800, 250);
+        game.dialogoText.setForeground(Color.ORANGE);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
         game.dialogoText.setLineWrap(true);
@@ -34,8 +33,16 @@ public class Guia3 extends JPanel {
         add(game.dialogoText);
 
         GerenciadorDeDialogos dialogosGuia3 = new GerenciadorDeDialogos(new String[]{
-                "Olá, eu sou o personagem 1.",
-                "Legal te conhecer! Eu sou o personagem 2."
+                ""+game.nomeJogador+": (Fingindo supresa) É claro que você está por aqui.",
+                "Guia: Mandou bem em sua batalha contra a Yuki-Onno, ela não era uma gracinha?",
+                ""+game.nomeJogador+": Sai pra lá, aquela coisa era feia que doia.",
+                "Guia: Agora só lhe resta um ultimo adversário, e o nome dele é Morozko." +
+                        "Vou lhe contar um pouca sobre o passado dele: ",
+                "Os que persistiam em ficar na montanha não conseguiram sobreviver vivendo honestamente." +
+                        "Eles forçaram outros moradores a ficarem junto com eles, extorquindo seus bens e ameaçando matá-los caso desobedecessem.",
+                "Um velho senhor foi uma das vítimas desses bandidos, que retiraram dele tudo que tinha de valor." +
+                        "Ele morreu sem qualquer dinheiro ou bens, ansiando puramente em ter de volta aquilo que lhe foi roubado!",
+                "Guia: tome cuidado com esse inimigo, ele é perigoso. Aqui, escolha dentre esses 3 itens para lhe ajudar em sua batalha: "
 
         });
 
@@ -100,7 +107,7 @@ public class Guia3 extends JPanel {
                             botao2.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    game.nomeItem = "ESCUDO";
+                                    game.nomeItem = "Escudo";
                                     game.exibirBatalha3();
                                 }
                             });

@@ -14,6 +14,9 @@ public class GameExemple extends JFrame {
     protected JLabel inventoryLabel;
 
     protected boolean botoesAdicionados = false;
+    protected boolean botoesAdicionados2 = false;
+    protected boolean botoesAdicionados3 = false;
+
 
     protected JTextArea dialogoText;
 
@@ -240,9 +243,8 @@ public class GameExemple extends JFrame {
 
 
         dialogoText = new JTextArea();
-        dialogoText.setBounds(150, 50, 400, 200);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        dialogoText.setForeground(Color.WHITE);
+        dialogoText.setBounds(150, 50, 800, 200);
+        dialogoText.setForeground(Color.ORANGE);
         dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         dialogoText.setEditable(false);
         dialogoText.setLineWrap(true);
@@ -250,7 +252,6 @@ public class GameExemple extends JFrame {
         dialogoText.setOpaque(false);
 
         painel2.add(dialogoText);
-        System.out.println("player " + painel2.getComponentCount());
 
         if(item.equals("")){
             if (playerHp<1){
@@ -416,6 +417,50 @@ public class GameExemple extends JFrame {
 
             }
         }
+        else if(item.equals("Coxa de galinha")){
+            GerenciadorDeDialogos usoCoxa = new GerenciadorDeDialogos(new String[]{
+                    "Você usou o item COXA DE GALINHA e algo inusitado aconteceu!",
+                    "Wendingo: HMMMMMMM, Meu Deus!!!! Há quanto tempo eu nâo saboreava algo tão delicioso assim!!!",
+                    "Isso me lembra de quando eu era pequeno, minha querida mãe preparava uma galinha assada para eu e meus irmãos comermos.",
+                    "Como eu era o irmão mais velho, tinha direito à escolher a parte da galinha que eu quisesse, eu sempre escolhia COXA DE GALINHA!",
+                    "Oh, Meu Deus, como eu me tornei nesse monstro tão horrendo, há quanto tempo eu não tinha uma memória sobre minha família.",
+                    "Tanto tempo se passou, tenho certeza que eles devem estar todos mortos!(Wendingo solta um uivo de dor, e logo após, desaparece para sempre!).",
+                    ""+nomeJogador+": Nossa, mas o que foi tudo isso!? Acho melhor eu seguir meu caminho."
+            });
+
+
+            dialogoText.setText(usoCoxa.getDialogoAtual());
+            dialogoText.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                        if (usoCoxa.hasNextDialogo()) {
+                            usoCoxa.avancarDialogo();
+                            dialogoText.setText(usoCoxa.getDialogoAtual());
+                        } else {
+                            JButton continua = new JButton("Continuar");
+                            continua.setBounds(850, 680, 150, 70);
+                            continua.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    painel2.remove(dialogoText);
+                                    exibirGuia2();
+                                }
+                            });
+                            repaint();//evita botao escondido!!!!
+                            painel2.add(continua);
+
+                        }
+                    }
+                }
+            });
+
+        }
+
+
+
+
+
         painel2.revalidate();
         painel2.repaint();
         dialogoText.requestFocus();
@@ -427,9 +472,8 @@ public class GameExemple extends JFrame {
         monstroDano = new java.util.Random().nextInt(30);
 
         dialogoText = new JTextArea();
-        dialogoText.setBounds(150, 50, 400, 200);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        dialogoText.setForeground(Color.WHITE);
+        dialogoText.setBounds(150, 50, 800, 200);
+        dialogoText.setForeground(Color.ORANGE);
         dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         dialogoText.setEditable(false);
         dialogoText.setLineWrap(true);
@@ -437,7 +481,6 @@ public class GameExemple extends JFrame {
         dialogoText.setOpaque(false);
 
         painel.add(dialogoText);
-        System.out.println("monstro " + painel.getComponentCount());
 
         if(item.equals("")){
             if(monstroHP<1){
@@ -477,7 +520,6 @@ public class GameExemple extends JFrame {
                                 dialogoBatalhaMonstro1.avancarDialogo();
                                 dialogoText.setText(dialogoBatalhaMonstro1.getDialogoAtual());
                             } else {
-                                System.out.println("AAAAAA");
                                 loop(painel, "");
 
                             }
@@ -524,7 +566,6 @@ public class GameExemple extends JFrame {
                                 dialogoArmadilha.avancarDialogo();
                                 dialogoText.setText(dialogoArmadilha.getDialogoAtual());
                             } else {
-                                System.out.println("AAAAAA");
                                 loop(painel, "Armadilha");
 
                             }
@@ -568,7 +609,6 @@ public class GameExemple extends JFrame {
                                 dialogoText.setText(efeitoArmadura.getDialogoAtual());
                             } else {
                                 contador2++;
-                                System.out.println("AAAAAA");
                                 loop(painel, "Armadura");
 
                             }
@@ -598,7 +638,6 @@ public class GameExemple extends JFrame {
                                 dialogoArmadura.avancarDialogo();
                                 dialogoText.setText(dialogoArmadura.getDialogoAtual());
                             } else {
-                                System.out.println("AAAAAA");
                                 loop(painel, "Armadura");
 
                             }
@@ -608,12 +647,6 @@ public class GameExemple extends JFrame {
 
             }
         }
-
-
-
-
-
-
 
         painel.revalidate();
         painel.repaint();
@@ -626,9 +659,8 @@ public class GameExemple extends JFrame {
 
 
         dialogoText = new JTextArea();
-        dialogoText.setBounds(150, 50, 400, 200);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        dialogoText.setForeground(Color.WHITE);
+        dialogoText.setBounds(150, 50, 800, 200);
+        dialogoText.setForeground(Color.ORANGE);
         dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         dialogoText.setEditable(false);
         dialogoText.setLineWrap(true);
@@ -636,7 +668,6 @@ public class GameExemple extends JFrame {
         dialogoText.setOpaque(false);
 
         painel2.add(dialogoText);
-        System.out.println("player " + painel2.getComponentCount());
 
         if(item.equals("")){
             if (playerHp<1){
@@ -803,6 +834,51 @@ public class GameExemple extends JFrame {
 
             }
         }
+        else if(item.equals("Kit medico")){
+            GerenciadorDeDialogos usoMedico = new GerenciadorDeDialogos(new String[]{
+                    "Ao usar o item KIT MÉDICO você repara uma coisa, Yuki-Onna não tira os olhos dele.",
+                    ""+nomeJogador+": Por que você olha tanto para isso, você quer?",
+                    "Isso... isso... é idêntico a aquele...(Yuki-Onna se recorda de quando foi deixada para trás por seus companheiros.",
+                    "Um deles tinha consigo um KIT MÉDICO, igual ao que você possui neste momento, "+
+                            "Yuki-Onna pedia esse kit para que pudesse cuidar de suas graves feridas, mas seu companheiro recuso-se em usar o kit médico para tratá-la",
+                    "Após isso ela viu seus companheiros indo embora em quanto ela gritava de dor, implorando para que eles voltassem e cuidassem dela.",
+                    "Yuki-Onna: Você está realmente oferecendo isto para mim? Porquê?",
+                    ""+nomeJogador+": Você mudou o seu jeito totalmente quando viu o meu item, imaginei que fosse algo que lhe interessasse.",
+                    "(Yuki-Onna pega o kit médico e começa a chorar baixinho, vai se afastando lentamente e desaparece no meio da floresta escura e fria).",
+                    "depois disso, Yuki-Onna nunca mais foi vista.",
+                    ""+nomeJogador+": Esse monstros... como podem... ah, deixa pra lá. Vou seguir viagem!"
+            });
+
+
+            dialogoText.setText(usoMedico.getDialogoAtual());
+            dialogoText.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                        if (usoMedico.hasNextDialogo()) {
+                            usoMedico.avancarDialogo();
+                            dialogoText.setText(usoMedico.getDialogoAtual());
+                        } else {
+                            JButton continua = new JButton("Continuar");
+                            continua.setBounds(850, 680, 150, 70);
+                            continua.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    painel2.remove(dialogoText);
+                                    exibirGuia3();
+                                }
+                            });
+                            repaint();//evita botao escondido!!!!
+                            painel2.add(continua);
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+
         painel2.revalidate();
         painel2.repaint();
         dialogoText.requestFocus();
@@ -814,9 +890,8 @@ public class GameExemple extends JFrame {
         monstroDano = new java.util.Random().nextInt(30);
 
         dialogoText = new JTextArea();
-        dialogoText.setBounds(150, 50, 400, 50);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        dialogoText.setForeground(Color.WHITE);
+        dialogoText.setBounds(150, 50, 800, 50);
+        dialogoText.setForeground(Color.ORANGE);
         dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         dialogoText.setEditable(false);
         dialogoText.setLineWrap(true);
@@ -824,7 +899,6 @@ public class GameExemple extends JFrame {
         dialogoText.setOpaque(false);
 
         painel.add(dialogoText);
-        System.out.println("monstro " + painel.getComponentCount());
 
         if(item.equals("")){
             if(monstroHP<1){
@@ -865,7 +939,6 @@ public class GameExemple extends JFrame {
                                 dialogoBatalhaMonstro2.avancarDialogo();
                                 dialogoText.setText(dialogoBatalhaMonstro2.getDialogoAtual());
                             } else {
-                                System.out.println("AAAAAA");
                                 loop2(painel, "");
 
                             }
@@ -894,7 +967,7 @@ public class GameExemple extends JFrame {
             else{
                 int danoAtual = monstroDano;
                 GerenciadorDeDialogos dialogoVela = new GerenciadorDeDialogos(new String[]{
-                        "Você recebeu " + danoAtual + " de dano da Yuki-Onno",
+                        "Você recebeu " + danoAtual + " de dano da Yuki-Onna",
                         "..."
 
                 });
@@ -912,7 +985,6 @@ public class GameExemple extends JFrame {
                                 dialogoVela.avancarDialogo();
                                 dialogoText.setText(dialogoVela.getDialogoAtual());
                             } else {
-                                System.out.println("AAAAAA");
                                 loop2(painel, "Vela cerimonial");
 
                             }
@@ -925,7 +997,7 @@ public class GameExemple extends JFrame {
         }
         else if(item.equals("Talisma")){
             if(monstroHP<1){
-                dialogoText.setText("Você derrotou Yuki-Onno!");
+                dialogoText.setText("Você derrotou Yuki-Onna!");
 
                 JButton continua = new JButton("Continuar");
                 continua.setBounds(850, 680, 150, 70);
@@ -942,7 +1014,7 @@ public class GameExemple extends JFrame {
             else{
                 int danoDividido = monstroDano/2;
                 GerenciadorDeDialogos dialogoArmadura = new GerenciadorDeDialogos(new String[]{
-                        "Você recebeu " + danoDividido + " de dano de Yuki-Onno",
+                        "Você recebeu " + danoDividido + " de dano de Yuki-Onna!",
                         "..."
 
                 });
@@ -960,7 +1032,6 @@ public class GameExemple extends JFrame {
                                 dialogoArmadura.avancarDialogo();
                                 dialogoText.setText(dialogoArmadura.getDialogoAtual());
                             } else {
-                                System.out.println("AAAAAA");
                                 loop2(painel, "Talisma");
 
                             }
@@ -988,9 +1059,9 @@ public class GameExemple extends JFrame {
 
 
         dialogoText = new JTextArea();
-        dialogoText.setBounds(150, 50, 400, 200);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        dialogoText.setForeground(Color.WHITE);
+        dialogoText.setBounds(150, 50, 800, 250);
+
+        dialogoText.setForeground(Color.ORANGE);
         dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         dialogoText.setEditable(false);
         dialogoText.setLineWrap(true);
@@ -998,7 +1069,6 @@ public class GameExemple extends JFrame {
         dialogoText.setOpaque(false);
 
         painel2.add(dialogoText);
-        System.out.println("player " + painel2.getComponentCount());
 
         if(item.equals("")){
             if (playerHp<1){
@@ -1169,6 +1239,46 @@ public class GameExemple extends JFrame {
 
             }
         }
+        else if(item.equals("Saco de dinheiro")){
+            GerenciadorDeDialogos usoDinheiro = new GerenciadorDeDialogos(new String[]{
+                    "Você usou o item SACO DE DINHEIRO e fez os olhos escuros e sombrios de Morozko brilharem!",
+                    "Morozko: ME DÊ! Eu quero esse ouro, passa ele para cá, seu pirralho.",
+                    "Você é empurrado e o saco de dinheiro é tirado a força de você.",
+                    "Ao se recomper, você grita: VOCÊ VAI PAGAR POR ISSO, SEU MALDITO!" +
+                            "Mas não havia ali outro ser além de você",
+                    "Morozko desapareceu na velocidade de um raio, levando consigo o saco de dinheiro," +
+                            "depois disso, Morozko nunca mais foi visto por aquelas montanhas."
+            });
+
+
+            dialogoText.setText(usoDinheiro.getDialogoAtual());
+            dialogoText.addKeyListener(new KeyAdapter() {
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                        if (usoDinheiro.hasNextDialogo()) {
+                            usoDinheiro.avancarDialogo();
+                            dialogoText.setText(usoDinheiro.getDialogoAtual());
+                        } else {
+                            JButton continua = new JButton("Continuar");
+                            continua.setBounds(850, 680, 150, 70);
+                            continua.addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent e) {
+                                    painel2.remove(dialogoText);
+                                    exibirGuia4();
+                                }
+                            });
+                            repaint();//evita botao escondido!!!!
+                            painel2.add(continua);
+
+                        }
+                    }
+                }
+            });
+        }
+
+
         painel2.revalidate();
         painel2.repaint();
         dialogoText.requestFocus();
@@ -1180,9 +1290,8 @@ public class GameExemple extends JFrame {
         monstroDano = new java.util.Random().nextInt(30);
 
         dialogoText = new JTextArea();
-        dialogoText.setBounds(150, 50, 400, 50);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        dialogoText.setForeground(Color.WHITE);
+        dialogoText.setBounds(150, 50, 800, 250);
+        dialogoText.setForeground(Color.ORANGE);
         dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         dialogoText.setEditable(false);
         dialogoText.setLineWrap(true);
@@ -1190,7 +1299,6 @@ public class GameExemple extends JFrame {
         dialogoText.setOpaque(false);
 
         painel.add(dialogoText);
-        System.out.println("monstro " + painel.getComponentCount());
 
         if(item.equals("")){
             if(monstroHP<1){
@@ -1213,7 +1321,7 @@ public class GameExemple extends JFrame {
             }else {
                 int danoAtual = monstroDano;
                 GerenciadorDeDialogos dialogoBatalhaMonstro3 = new GerenciadorDeDialogos(new String[]{
-                        "Você recebeu " + danoAtual + " de dano de Worozko",
+                        "Você recebeu " + danoAtual + " de dano de Morozko",
                         "..."
 
                 });
@@ -1231,7 +1339,6 @@ public class GameExemple extends JFrame {
                                 dialogoBatalhaMonstro3.avancarDialogo();
                                 dialogoText.setText(dialogoBatalhaMonstro3.getDialogoAtual());
                             } else {
-                                System.out.println("AAAAAA");
                                 loop3(painel, "");
 
                             }
@@ -1278,7 +1385,6 @@ public class GameExemple extends JFrame {
                                 dialogoLampiao.avancarDialogo();
                                 dialogoText.setText(dialogoLampiao.getDialogoAtual());
                             } else {
-                                System.out.println("AAAAAA");
                                 loop3(painel, "Lampiao");
 
                             }
@@ -1326,7 +1432,6 @@ public class GameExemple extends JFrame {
                                 dialogoArmadura.avancarDialogo();
                                 dialogoText.setText(dialogoArmadura.getDialogoAtual());
                             } else {
-                                System.out.println("AAAAAA");
                                 loop3(painel, "Escudo");
 
                             }

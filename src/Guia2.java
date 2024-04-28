@@ -22,9 +22,8 @@ public class Guia2 extends JPanel {
         game.playerStatus();
 
         game.dialogoText = new JTextArea();
-        game.dialogoText.setBounds(150, 50, 400, 50);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        game.dialogoText.setForeground(Color.WHITE);
+        game.dialogoText.setBounds(150, 50, 800, 250);
+        game.dialogoText.setForeground(Color.ORANGE);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
         game.dialogoText.setLineWrap(true);
@@ -34,8 +33,16 @@ public class Guia2 extends JPanel {
         add(game.dialogoText);
 
         GerenciadorDeDialogos dialogosGuia2 = new GerenciadorDeDialogos(new String[]{
-                "Olá, eu sou o personagem 1.",
-                "Legal te conhecer! Eu sou o personagem 2."
+                "Guia: Muito bem, jovem guerreiro! Você sobreviveu ao encontro contra o aterrorizante Wendingo.",
+                ""+game.nomeJogador+": Arg, olá de novo. Você sussurra baixinho: 'Obrigado pela ajuda'.",
+                "Guia: Disponha. Agora voce enfrentará uma monstra maligna, cheia de ódio e rancor dentro de si. Esse ser se chama Yuki-Onna!",
+                "Deixe me contar um pouco sobre a história dela: ",
+                "Nem todos que tentaram fugir da nevasca conseguiram. O clima ficou confuso, e o ambiente como um labirinto.",
+                "Uma moça e seu grupo estavam nessa situação, até ela ter se machucado na peregrinação."+
+                        "Seus companheiros, vendo-a como um estorvo e desperdício de recursos, abandonaram-na.",
+                "Ela morreu sozinha e em agonia, querendo apenas que sua dor parasse",
+                ""+game.nomeJogador+": Tenso!",
+                "Guia: Bom, contra ela eu posso lhe ajudar oferecendo mais 3 itens, escolha-os sabiamente: "
 
         });
 
@@ -57,7 +64,7 @@ public class Guia2 extends JPanel {
                     velaCerimonial.setBounds(285, 440, velaIcon.getIconWidth(), velaIcon.getIconHeight());
                     velaCerimonial.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            game.dialogoText.setText("Você escolheu VELA CERIMONIAL como seu item!");
+                            game.dialogoText.setText("Você escolheu VELA CERIMONIAL como seu item! Efeito: bom contra aparições.");
                             game.inventoryLabel.setText("Inventário: Espada, Vela cerimonial");
 
                             if(game.botaoContinuarAtual != null){
@@ -88,7 +95,7 @@ public class Guia2 extends JPanel {
                     talisma.setBounds(435, 440, talismaIcon.getIconWidth(), talismaIcon.getIconHeight());
                     talisma.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            game.dialogoText.setText("Você escolheu TALISMÃ como seu item!");
+                            game.dialogoText.setText("Você escolheu TALISMÃ como seu item! Efeito: ruim para as aparições");
                             game.inventoryLabel.setText("Inventário: Espada, Talisma");
 
                             if(game.botaoContinuarAtual != null){
@@ -119,7 +126,7 @@ public class Guia2 extends JPanel {
                     kitMedico.setBounds(585, 440, kitIcon.getIconWidth(), kitIcon.getIconHeight());
                     kitMedico.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            game.dialogoText.setText("Você escolheu KIT MÉDICO como seu item!");
+                            game.dialogoText.setText("Você escolheu KIT MÉDICO como seu item! Efeito: cura!?");
                             game.inventoryLabel.setText("Inventário: Espada, Kit medico");
 
                             if(game.botaoContinuarAtual != null){

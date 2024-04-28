@@ -22,8 +22,7 @@ public class Guia4 extends JPanel {
         game.playerStatus();
 
         game.dialogoText = new JTextArea();
-        game.dialogoText.setBounds(150, 50, 400, 50);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
+        game.dialogoText.setBounds(150, 50, 800, 250);
         game.dialogoText.setForeground(Color.WHITE);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
@@ -34,8 +33,14 @@ public class Guia4 extends JPanel {
         add(game.dialogoText);
 
         GerenciadorDeDialogos dialogosGuia4 = new GerenciadorDeDialogos(new String[]{
-                "Olá, eu sou o personagem 1.",
-                "Legal te conhecer! Eu sou o personagem 2."
+                "Guia: Meu parabéns, meu caro jovem. Você consegui derrotar todos os monstros que ainda restavam por essas montanhas." +
+                        "Agora você pode voltar para casa, e eu irei seguir em minha trilha sem destino.",
+                ""+game.nomeJogador+": Sabe, o meu avô me disse uma vez que quando se navega sem destino, nenhum vento é favorável."+
+                        " Obrigado por guiar meu caminho.",
+                "Guia: Olha só, parece que o nosso pequeno jovem cresceu! Boa sorte em sua vida, meu caro rapaz, "+
+                        "me sinto em paz por saber que seu destino não será o mesmo que o meu.",
+                ""+game.nomeJogador+": O que você quiz dizer com is... Espere! Não vá ainda!",
+                "O espiríto guia seguiu seu caminho rapidamente, até não ser mais possível avistá-lo."
 
         });
 

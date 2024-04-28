@@ -16,7 +16,10 @@ public class TelaInicial extends JPanel {
                 game.exibirTelaCadastroJogador();
             }
         });
+        JButton carregarJogoButton = new JButton("Carregar Jogo");
+        carregarJogoButton.setBounds(412, 450, 200, 50);
         add(novoJogoButton);
+        add(carregarJogoButton);
     }
 
     @Override

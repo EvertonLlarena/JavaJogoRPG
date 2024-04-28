@@ -31,9 +31,8 @@ public class Batalha1 extends JPanel{
 
 
         game.dialogoText = new JTextArea();
-        game.dialogoText.setBounds(150, 50, 400, 50);
-        //dialogoText.setBackground(new Color(0, 0, 0, 140));
-        game.dialogoText.setForeground(Color.WHITE);
+        game.dialogoText.setBounds(150, 50, 800, 350);
+        game.dialogoText.setForeground(Color.ORANGE);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
         game.dialogoText.setLineWrap(true);
@@ -44,8 +43,9 @@ public class Batalha1 extends JPanel{
 
 
         GerenciadorDeDialogos dialogosBatalha1 = new GerenciadorDeDialogos(new String[]{
-                "Olá, eu sou o personagem 1.",
-                "Legal te conhecer! Eu sou o personagem 2."
+                "Wendingo: Quem é você, inseto! É muita coragem sua vir em meu encontro. Está pronto para morrer?",
+                ""+game.nomeJogador+": Para você não interessa quem eu sou, o que importa é que você sentirá a lâmina de minha espada cortando sua garganta lentamente.",
+                "Wendingo: Petulante! Espero que você tenha algo consigo que vala mais que a sua vida, pois você está prestas a perdê-la."
 
         });
 
