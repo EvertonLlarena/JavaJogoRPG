@@ -23,7 +23,7 @@ public class Guia4 extends JPanel {
 
         game.dialogoText = new JTextArea();
         game.dialogoText.setBounds(150, 50, 800, 250);
-        game.dialogoText.setForeground(Color.WHITE);
+        game.dialogoText.setForeground(Color.ORANGE);
         game.dialogoText.setFont(new Font("Arial", Font.BOLD, 20));
         game.dialogoText.setEditable(false);
         game.dialogoText.setLineWrap(true);
