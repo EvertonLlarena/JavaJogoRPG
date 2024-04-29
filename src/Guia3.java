@@ -14,14 +14,20 @@ public class Guia3 extends MasterClass {
         game.hpPlayerLabel = new JLabel();
         game.hpPlayerLabel.setBounds(10, 10, 100, 20);
         game.hpPlayerLabel.setForeground(Color.RED);
+        game.hpPlayerLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
-        game.inventoryLabel = new JLabel("Inventário: Espada ");
-        game.inventoryLabel.setBounds(10, 30, 200, 20);
+        ImageIcon espadaIcon = new ImageIcon("./imagens/espada.png");
+        JLabel espada = new JLabel(espadaIcon);
+        espada.setBounds(18, 70, espadaIcon.getIconWidth(), espadaIcon.getIconHeight());
+        game.inventoryLabel = new JLabel("Inventário:  ");
+        game.inventoryLabel.setBounds(10, 30, 120, 50);
         game.inventoryLabel.setForeground(Color.RED);
+        game.inventoryLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         add(new SaveButton(game, this));
         add(game.hpPlayerLabel);
         add(game.inventoryLabel);
+        add(espada);
         game.playerStatus();
 
         game.dialogoText = new JTextArea();
@@ -67,12 +73,19 @@ public class Guia3 extends MasterClass {
                     lampiao.setBounds(285, 440, lampiaoIcon.getIconWidth(), lampiaoIcon.getIconHeight());
                     lampiao.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            game.dialogoText.setText("Você escolheu LAMPIÃO como seu item!");
-                            game.inventoryLabel.setText("Inventário: Espada, Lampiao");
+                            game.dialogoText.setText("Você escolheu LAMPIÃO como seu item! Efeito: incendiar.");
 
                             if(game.botaoContinuarAtual != null){
+                                remove(game.itemTroca);
                                 remove(game.botaoContinuarAtual);
+
+                                revalidate();
+                                repaint();
                             }
+
+                            ImageIcon itemIcon1 = new ImageIcon("./imagens/lampiao.png");
+                            JLabel item1 = new JLabel(itemIcon1);
+                            item1.setBounds(1, 170, itemIcon1.getIconWidth(), itemIcon1.getIconHeight());
 
                             JButton botao1 = new JButton("Continuar");
                             botao1.setBounds(850, 300, 150, 70);
@@ -83,11 +96,13 @@ public class Guia3 extends MasterClass {
                                     game.exibirBatalha3();
                                 }
                             });
+                            add(item1);
                             add(botao1);
 
                             revalidate();
                             repaint();//evita botao escondido!!!
 
+                            game.itemTroca = item1;
                             game.botaoContinuarAtual = botao1;
 
                         }
@@ -98,12 +113,19 @@ public class Guia3 extends MasterClass {
                     escudo.setBounds(435, 440, escudoIcon.getIconWidth(), escudoIcon.getIconHeight());
                     escudo.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            game.dialogoText.setText("Você escolheu ESCUDO como seu item!");
-                            game.inventoryLabel.setText("Inventário: Espada, Escudo");
+                            game.dialogoText.setText("Você escolheu ESCUDO como seu item! Efeito: parry.");
 
                             if(game.botaoContinuarAtual != null){
+                                remove(game.itemTroca);
                                 remove(game.botaoContinuarAtual);
+
+                                revalidate();
+                                repaint();
                             }
+
+                            ImageIcon itemIcon2 = new ImageIcon("./imagens/escudo.png");
+                            JLabel item2 = new JLabel(itemIcon2);
+                            item2.setBounds(1, 170, itemIcon2.getIconWidth(), itemIcon2.getIconHeight());
 
                             JButton botao2 = new JButton("Continuar");
                             botao2.setBounds(850, 460, 150, 70);
@@ -114,11 +136,13 @@ public class Guia3 extends MasterClass {
                                     game.exibirBatalha3();
                                 }
                             });
+                            add(item2);
                             add(botao2);
 
                             revalidate();
                             repaint();//evita botao escondido!!!
 
+                            game.itemTroca = item2;
                             game.botaoContinuarAtual = botao2;
 
                         }
@@ -129,27 +153,36 @@ public class Guia3 extends MasterClass {
                     sacoDeDinheiro.setBounds(585, 440, dinheiroIcon.getIconWidth(), dinheiroIcon.getIconHeight());
                     sacoDeDinheiro.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
-                            game.dialogoText.setText("Você escolheu SACO DE DINHEIRO como seu item!");
-                            game.inventoryLabel.setText("Inventário: Espada, Saco de dinheiro");
+                            game.dialogoText.setText("Você escolheu SACO DE DINHEIRO como seu item! Efeito: morrer rico!?");
 
                             if(game.botaoContinuarAtual != null){
-                                game.remove(game.botaoContinuarAtual);
+                                remove(game.itemTroca);
+                                remove(game.botaoContinuarAtual);
+
+                                revalidate();
+                                repaint();
                             }
+
+                            ImageIcon itemIcon3 = new ImageIcon("./imagens/sacoDeDinheiro.png");
+                            JLabel item3 = new JLabel(itemIcon3);
+                            item3.setBounds(1, 170, itemIcon3.getIconWidth(), itemIcon3.getIconHeight());
 
                             JButton botao3 = new JButton("Continuar");
                             botao3.setBounds(850, 680, 150, 70);
                             botao3.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    game.nomeItem = "Saco de dinheiro";
+                                    game.nomeItem = "SacoDeDinheiro";
                                     game.exibirBatalha3();
                                 }
                             });
+                            add(item3);
                             add(botao3);
 
                             revalidate();
                             repaint();//evita botao escondido!!!
 
+                            game.itemTroca = item3;
                             game.botaoContinuarAtual = botao3;
 
                         }

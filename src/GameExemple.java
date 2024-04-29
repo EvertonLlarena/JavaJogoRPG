@@ -12,6 +12,7 @@ public class GameExemple extends JFrame {
     protected JLabel hpPlayerLabel;
     protected JLabel hpMonstroLabel;
     protected JLabel inventoryLabel;
+    protected JLabel itemTroca;
 
     protected boolean botoesAdicionados = false;
     protected boolean botoesAdicionados2 = false;
@@ -417,7 +418,7 @@ public class GameExemple extends JFrame {
 
             }
         }
-        else if(item.equals("Coxa de galinha")){
+        else if(item.equals("CoxaDeGalinha")){
             GerenciadorDeDialogos usoCoxa = new GerenciadorDeDialogos(new String[]{
                     "Você usou o item COXA DE GALINHA e algo inusitado aconteceu!",
                     "Wendingo: HMMMMMMM, Meu Deus!!!! Há quanto tempo eu nâo saboreava algo tão delicioso assim!!!",
@@ -834,7 +835,7 @@ public class GameExemple extends JFrame {
 
             }
         }
-        else if(item.equals("Kit medico")){
+        else if(item.equals("KitMedico")){
             GerenciadorDeDialogos usoMedico = new GerenciadorDeDialogos(new String[]{
                     "Ao usar o item KIT MÉDICO você repara uma coisa, Yuki-Onna não tira os olhos dele.",
                     ""+nomeJogador+": Por que você olha tanto para isso, você quer?",
@@ -1239,7 +1240,7 @@ public class GameExemple extends JFrame {
 
             }
         }
-        else if(item.equals("Saco de dinheiro")){
+        else if(item.equals("SacoDeDinheiro")){
             GerenciadorDeDialogos usoDinheiro = new GerenciadorDeDialogos(new String[]{
                     "Você usou o item SACO DE DINHEIRO e fez os olhos escuros e sombrios de Morozko brilharem!",
                     "Morozko: ME DÊ! Eu quero esse ouro, passa ele para cá, seu pirralho.",

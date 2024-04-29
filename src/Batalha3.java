@@ -10,20 +10,31 @@ public class Batalha3 extends JPanel{
         setLayout(null);
 
         game.hpMonstroLabel = new JLabel();
-        game.hpMonstroLabel.setBounds(800, 10, 100, 20);
+        game.hpMonstroLabel.setBounds(800, 10, 200, 20);
         game.hpMonstroLabel.setForeground(Color.RED);
+        game.hpMonstroLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         game.hpPlayerLabel = new JLabel();
         game.hpPlayerLabel.setBounds(10,10,100,20);
         game.hpPlayerLabel.setForeground(Color.RED);
+        game.hpPlayerLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
-        game.inventoryLabel = new JLabel("Inventário: Espada, " + game.nomeItem);
-        game.inventoryLabel.setBounds(10, 30, 200, 20);
+        ImageIcon espadaIcon = new ImageIcon("./imagens/espada.png");
+        JLabel espada = new JLabel(espadaIcon);
+        espada.setBounds(18, 70, espadaIcon.getIconWidth(), espadaIcon.getIconHeight());
+        ImageIcon itemIcon = new ImageIcon("./imagens/"+game.nomeItem+".png");
+        JLabel item = new JLabel(itemIcon);
+        item.setBounds(1, 170, itemIcon.getIconWidth(), itemIcon.getIconHeight());
+        game.inventoryLabel = new JLabel("Inventário:  ");
+        game.inventoryLabel.setBounds(10, 30, 120, 50);
         game.inventoryLabel.setForeground(Color.RED);
+        game.inventoryLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         add(game.hpMonstroLabel);
         add(game.hpPlayerLabel);
         add(game.inventoryLabel);
+        add(espada);
+        add(item);
         game.monstroStatus();
         game.playerStatus();
 

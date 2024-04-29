@@ -13,14 +13,20 @@ public class Guia1 extends MasterClass {
         game.hpPlayerLabel = new JLabel();
         game.hpPlayerLabel.setBounds(10, 10, 100, 20);
         game.hpPlayerLabel.setForeground(Color.RED);
+        game.hpPlayerLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
-        game.inventoryLabel = new JLabel("Inventário: Espada ");
-        game.inventoryLabel.setBounds(10, 30, 200, 20);
+        ImageIcon espadaIcon = new ImageIcon("./imagens/espada.png");
+        JLabel espada = new JLabel(espadaIcon);
+        espada.setBounds(18, 70, espadaIcon.getIconWidth(), espadaIcon.getIconHeight());
+        game.inventoryLabel = new JLabel("Inventário:  ");
+        game.inventoryLabel.setBounds(10, 30, 120, 50);
         game.inventoryLabel.setForeground(Color.RED);
+        game.inventoryLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         add(new SaveButton(game, this));
         add(game.hpPlayerLabel);
         add(game.inventoryLabel);
+        add(espada);
         game.playerStatus();
 
         game.dialogoText = new JTextArea();
@@ -36,11 +42,11 @@ public class Guia1 extends MasterClass {
 
         GerenciadorDeDialogos dialogosGuia1 = new GerenciadorDeDialogos(new String[]{
                 ""+game.nomeJogador+": Quem é você? Por acaso é um dos monstros que por aqui vagueiam?",
-                "Guia: Não, para a sua sorte."+"Os monstros que por aqui vivem são muitos poderosos, você não teria a mínima chance contra eles usando apenas essa espada." +
-                        "Um dos mais terriveis, Wendingo, é o que você provavelmente enfrentará primeiro. vou lhe contar um pouco sobre a história dele: ",
+                "Guia: Não, para a sua sorte."+" Os monstros que por aqui vivem são muitos poderosos, você não teria a mínima chance contra eles usando apenas essa espada." +
+                        "Um dos mais terriveis, Wendingo, é o que você provavelmente enfrentará primeiro. Vou lhe contar um pouco sobre a história dele: ",
                 "Guia: Há muito tempo atrás, houve uma intensa nevasca nessas montanhas de gelo, que obrigou boa parte dos moradores a procurarem outro lugar para morar.",
                 "Guia: Mas nem todos os moradores da montanha desistiram de morar lá depois que a nevasca começou. "+
-                        "Um homem persistiu com tudo que tinha para ficar lá, mas os recursos estavam ficando escassos. ",
+                        "Um homem persistiu com tudo o que tinha para ficar lá, mas os recursos estavam ficando escassos. ",
                 "Guia: Ele teve de recorrer a viver na miséria para sobreviver, se sustentando apenas comendo cascas de árvore.",
                 "Guia: Quando ele finalmente decidiu ir embora, já era tarde demais. " +
                         "Ele sucumbiu à fome, desejando apenas por uma refeição de qualidade.",
@@ -75,14 +81,21 @@ public class Guia1 extends MasterClass {
                     armadilha.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
                             game.dialogoText.setText("Você escolheu ARMADILHA como seu item! Efeito: Dano aterrorizante." );
-                            game.inventoryLabel.setText("Inventário: Espada, Armadilha");
 
                             if(game.botaoContinuarAtual != null){
+                                remove(game.itemTroca);
                                 remove(game.botaoContinuarAtual);
+
+                                revalidate();
+                                repaint();
                             }
 
+                            ImageIcon itemIcon1 = new ImageIcon("./imagens/armadilha.png");
+                            JLabel item1 = new JLabel(itemIcon1);
+                            item1.setBounds(1, 170, itemIcon1.getIconWidth(), itemIcon1.getIconHeight());
+
                             JButton botao1 = new JButton("Continuar");
-                            botao1.setBounds(850, 300, 150, 70);
+                            botao1.setBounds(850, 680, 150, 70);
                             botao1.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
@@ -90,12 +103,17 @@ public class Guia1 extends MasterClass {
                                     game.exibirBatalha1();
                                 }
                             });
+                            add(item1);
                             add(botao1);
+
 
                             revalidate();
                             repaint();//evita botao escondido!!!
+                            requestFocus();
 
+                            game.itemTroca = item1;
                             game.botaoContinuarAtual = botao1;
+
 
                         }
                     });
@@ -106,14 +124,21 @@ public class Guia1 extends MasterClass {
                     armadura.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
                             game.dialogoText.setText("Você escolheu ARMADURA como seu item! Efeito: Resistência a dano.");
-                            game.inventoryLabel.setText("Inventário: Espada, Armadura");
 
                             if(game.botaoContinuarAtual != null){
+                                remove(game.itemTroca);
                                 remove(game.botaoContinuarAtual);
+
+                                revalidate();
+                                repaint();
                             }
 
+                            ImageIcon itemIcon2 = new ImageIcon("./imagens/armadura.png");
+                            JLabel item2 = new JLabel(itemIcon2);
+                            item2.setBounds(1, 170, itemIcon2.getIconWidth(), itemIcon2.getIconHeight());
+
                             JButton botao2 = new JButton("Continuar");
-                            botao2.setBounds(850, 460, 150, 70);
+                            botao2.setBounds(850, 680, 150, 70);
                             botao2.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
@@ -121,12 +146,17 @@ public class Guia1 extends MasterClass {
                                     game.exibirBatalha1();
                                 }
                             });
+                            add(item2);
                             add(botao2);
+
 
                             revalidate();
                             repaint();//evita botao escondido!!!
+                            requestFocus();
 
+                            game.itemTroca = item2;
                             game.botaoContinuarAtual = botao2;
+
 
                         }
                     });
@@ -137,27 +167,39 @@ public class Guia1 extends MasterClass {
                     coxa.addMouseListener(new MouseAdapter() {
                         public void mouseClicked(MouseEvent evt) {
                             game.dialogoText.setText("Você escolheu COXA DE GALINHA como seu item! Efeito: Deliciosa.");
-                            game.inventoryLabel.setText("Inventário: Espada, Coxa de galinha");
 
                             if(game.botaoContinuarAtual != null){
-                                game.remove(game.botaoContinuarAtual);
+                                remove(game.itemTroca);
+                                remove(game.botaoContinuarAtual);
+
+                                revalidate();
+                                repaint();
                             }
+
+                            ImageIcon itemIcon3 = new ImageIcon("./imagens/coxaDeGalinha.png");
+                            JLabel item3 = new JLabel(itemIcon3);
+                            item3.setBounds(1, 170, itemIcon3.getIconWidth(), itemIcon3.getIconHeight());
 
                             JButton botao3 = new JButton("Continuar");
                             botao3.setBounds(850, 680, 150, 70);
                             botao3.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    game.nomeItem = "Coxa de galinha";
+                                    game.nomeItem = "CoxaDeGalinha";
                                     game.exibirBatalha1();
                                 }
                             });
+                            add(item3);
                             add(botao3);
+
 
                             revalidate();
                             repaint();//evita botao escondido!!!
+                            requestFocus();
 
+                            game.itemTroca = item3;
                             game.botaoContinuarAtual = botao3;
+
 
                         }
                     });
@@ -173,9 +215,6 @@ public class Guia1 extends MasterClass {
 
                 }
             });
-
-
-
     }
     @Override
     protected void paintComponent(Graphics g) {

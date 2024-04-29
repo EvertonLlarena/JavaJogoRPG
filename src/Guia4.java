@@ -12,13 +12,19 @@ public class Guia4 extends JPanel {
         game.hpPlayerLabel = new JLabel();
         game.hpPlayerLabel.setBounds(10, 10, 100, 20);
         game.hpPlayerLabel.setForeground(Color.RED);
+        game.hpPlayerLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
-        game.inventoryLabel = new JLabel("Inventário: Espada ");
-        game.inventoryLabel.setBounds(10, 30, 200, 20);
+        ImageIcon espadaIcon = new ImageIcon("./imagens/espada.png");
+        JLabel espada = new JLabel(espadaIcon);
+        espada.setBounds(18, 70, espadaIcon.getIconWidth(), espadaIcon.getIconHeight());
+        game.inventoryLabel = new JLabel("Inventário:  ");
+        game.inventoryLabel.setBounds(10, 30, 120, 50);
         game.inventoryLabel.setForeground(Color.RED);
+        game.inventoryLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         add(game.hpPlayerLabel);
         add(game.inventoryLabel);
+        add(espada);
         game.playerStatus();
 
         game.dialogoText = new JTextArea();
