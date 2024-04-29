@@ -92,7 +92,7 @@ public class Guia2 extends MasterClass {
                             botao1.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    game.nomeItem = "Vela cerimonial";
+                                    game.nomeItem = "velaCerimonial";
                                     game.exibirBatalha2();
                                 }
                             });
@@ -133,7 +133,7 @@ public class Guia2 extends MasterClass {
                             botao2.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    game.nomeItem = "Talisma";
+                                    game.nomeItem = "talisma";
                                     game.exibirBatalha2();
                                 }
                             });
@@ -164,7 +164,7 @@ public class Guia2 extends MasterClass {
                                 repaint();
                             }
 
-                            ImageIcon itemIcon3 = new ImageIcon("./imagens/KitMedico.png");
+                            ImageIcon itemIcon3 = new ImageIcon("./imagens/kitMedico.png");
                             JLabel item3 = new JLabel(itemIcon3);
                             item3.setBounds(1, 170, itemIcon3.getIconWidth(), itemIcon3.getIconHeight());
 
@@ -173,7 +173,7 @@ public class Guia2 extends MasterClass {
                             botao3.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    game.nomeItem = "KitMedico";
+                                    game.nomeItem = "kitMedico";
                                     game.exibirBatalha2();
                                 }
                             });

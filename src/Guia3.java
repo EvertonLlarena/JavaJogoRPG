@@ -92,7 +92,7 @@ public class Guia3 extends MasterClass {
                             botao1.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    game.nomeItem = "Lampiao";
+                                    game.nomeItem = "lampiao";
                                     game.exibirBatalha3();
                                 }
                             });
@@ -132,7 +132,7 @@ public class Guia3 extends MasterClass {
                             botao2.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    game.nomeItem = "Escudo";
+                                    game.nomeItem = "escudo";
                                     game.exibirBatalha3();
                                 }
                             });
@@ -172,7 +172,7 @@ public class Guia3 extends MasterClass {
                             botao3.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
-                                    game.nomeItem = "SacoDeDinheiro";
+                                    game.nomeItem = "sacoDeDinheiro";
                                     game.exibirBatalha3();
                                 }
                             });

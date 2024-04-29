@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.util.Random;
 
 public class GameExemple extends JFrame {
+    private TelaInicial telaInicial;
 
     protected String nomeJogador, nomeItem, posicao;
     protected int playerHp;
@@ -126,6 +127,11 @@ public class GameExemple extends JFrame {
     }
 
 
+    public void setTelaInicial(TelaInicial telaInicial) {
+        this.telaInicial = telaInicial;
+    }
+
+
 
 
 
@@ -240,7 +246,7 @@ public class GameExemple extends JFrame {
     //---------------------------------------------------------------------------------------------------------------------------------------------------
     public void playerAtaque(JPanel painel2, String item){
         int playerDano = 0;
-        playerDano = new Random().nextInt(300);
+        playerDano = new Random().nextInt(100);
 
 
         dialogoText = new JTextArea();
@@ -256,7 +262,10 @@ public class GameExemple extends JFrame {
 
         if(item.equals("")){
             if (playerHp<1){
-                dialogoText.setText("Game Over!");
+                dialogoText.setForeground(Color.RED);
+                dialogoText.setFont(new Font("Arial",Font.BOLD,120));
+                dialogoText.setBounds(350,200,650,350);
+                dialogoText.setText("GAME OVER!");
 
             }
             else{
@@ -290,9 +299,14 @@ public class GameExemple extends JFrame {
             }
 
         }
-        else if(item.equals("Armadilha")){
+        else if(item.equals("armadilha")){
             if (playerHp<1){
-                dialogoText.setText("Game Over!");
+                dialogoText.setForeground(Color.RED);
+                dialogoText.setFont(new Font("Arial",Font.BOLD,120));
+                dialogoText.setBounds(350,200,650,350);
+                dialogoText.setText("GAME OVER!");
+
+
             }
             else if(contador1 == 0){
                 int ArmaDilha = 300;
@@ -317,7 +331,7 @@ public class GameExemple extends JFrame {
                             } else {
                                 contador1++;
                                 painel2.remove(dialogoText);
-                                monstroAtaque(painel2, "Armadilha");
+                                monstroAtaque(painel2, "armadilha");
 
                             }
                         }
@@ -345,7 +359,7 @@ public class GameExemple extends JFrame {
                                 dialogoText.setText(dialogoBatalhaArmadilha.getDialogoAtual());
                             } else {
                                 painel2.remove(dialogoText);
-                                monstroAtaque(painel2, "Armadilha");
+                                monstroAtaque(painel2, "armadilha");
 
                             }
                         }
@@ -354,9 +368,13 @@ public class GameExemple extends JFrame {
             }
 
         }
-        else if(item.equals("Armadura")){
+        else if(item.equals("armadura")){
             if (playerHp<1){
-                dialogoText.setText("Game Over!");
+                dialogoText.setForeground(Color.RED);
+                dialogoText.setFont(new Font("Arial",Font.BOLD,120));
+                dialogoText.setBounds(350,200,650,350);
+                dialogoText.setText("GAME OVER!");
+
             }
             else if(contador2 == 0){
                 int danoAtual = playerDano;
@@ -380,7 +398,7 @@ public class GameExemple extends JFrame {
                             } else {
                                 contador2++;
                                 painel2.remove(dialogoText);
-                                monstroAtaque(painel2, "Armadura");
+                                monstroAtaque(painel2, "armadura");
 
                             }
                         }
@@ -409,7 +427,7 @@ public class GameExemple extends JFrame {
                                 dialogoText.setText(dialogoBatalhaArmadura.getDialogoAtual());
                             } else {
                                 painel2.remove(dialogoText);
-                                monstroAtaque(painel2, "Armadura");
+                                monstroAtaque(painel2, "armadura");
 
                             }
                         }
@@ -418,7 +436,7 @@ public class GameExemple extends JFrame {
 
             }
         }
-        else if(item.equals("CoxaDeGalinha")){
+        else if(item.equals("coxaDeGalinha")){
             GerenciadorDeDialogos usoCoxa = new GerenciadorDeDialogos(new String[]{
                     "Você usou o item COXA DE GALINHA e algo inusitado aconteceu!",
                     "Wendingo: HMMMMMMM, Meu Deus!!!! Há quanto tempo eu nâo saboreava algo tão delicioso assim!!!",
@@ -529,7 +547,7 @@ public class GameExemple extends JFrame {
                 });
             }
         }
-        else if(item.equals("Armadilha")){
+        else if(item.equals("armadilha")){
             if(monstroHP<1){
                 dialogoText.setText("Você derrotou Wendingo!");
 
@@ -567,7 +585,7 @@ public class GameExemple extends JFrame {
                                 dialogoArmadilha.avancarDialogo();
                                 dialogoText.setText(dialogoArmadilha.getDialogoAtual());
                             } else {
-                                loop(painel, "Armadilha");
+                                loop(painel, "armadilha");
 
                             }
                         }
@@ -577,7 +595,7 @@ public class GameExemple extends JFrame {
             }
 
         }
-        else if(item.equals("Armadura")){
+        else if(item.equals("armadura")){
             if(monstroHP<1){
                 dialogoText.setText("Você derrotou Wendingo!");
 
@@ -610,7 +628,7 @@ public class GameExemple extends JFrame {
                                 dialogoText.setText(efeitoArmadura.getDialogoAtual());
                             } else {
                                 contador2++;
-                                loop(painel, "Armadura");
+                                loop(painel, "armadura");
 
                             }
                         }
@@ -639,7 +657,7 @@ public class GameExemple extends JFrame {
                                 dialogoArmadura.avancarDialogo();
                                 dialogoText.setText(dialogoArmadura.getDialogoAtual());
                             } else {
-                                loop(painel, "Armadura");
+                                loop(painel, "armadura");
 
                             }
                         }
@@ -656,7 +674,7 @@ public class GameExemple extends JFrame {
     //------------------------------------------------------------------------------------------------------------------------------------------------------------
     public void playerAtaque2(JPanel painel2, String item){
         int playerDano = 0;
-        playerDano = new Random().nextInt(300);
+        playerDano = new Random().nextInt(100);
 
 
         dialogoText = new JTextArea();
@@ -672,7 +690,10 @@ public class GameExemple extends JFrame {
 
         if(item.equals("")){
             if (playerHp<1){
-                dialogoText.setText("Game Over!");
+                dialogoText.setForeground(Color.RED);
+                dialogoText.setFont(new Font("Arial",Font.BOLD,120));
+                dialogoText.setBounds(350,200,650,350);
+                dialogoText.setText("GAME OVER!");
 
             }
             else{
@@ -706,9 +727,12 @@ public class GameExemple extends JFrame {
             }
 
         }
-        else if(item.equals("Vela cerimonial")){
+        else if(item.equals("velaCerimonial")){
             if (playerHp<1){
-                dialogoText.setText("Game Over!");
+                dialogoText.setForeground(Color.RED);
+                dialogoText.setFont(new Font("Arial",Font.BOLD,120));
+                dialogoText.setBounds(350,200,650,350);
+                dialogoText.setText("GAME OVER!");
             }
             else if(contador3 == 0){
                 int dobroDano = playerDano * 2;
@@ -734,7 +758,7 @@ public class GameExemple extends JFrame {
                             } else {
                                 contador3++;
                                 painel2.remove(dialogoText);
-                                monstroAtaque2(painel2, "Vela cerimonial");
+                                monstroAtaque2(painel2, "velaCerimonial");
 
                             }
                         }
@@ -762,7 +786,7 @@ public class GameExemple extends JFrame {
                                 dialogoText.setText(dialogoBatalhaVela.getDialogoAtual());
                             } else {
                                 painel2.remove(dialogoText);
-                                monstroAtaque2(painel2, "Vela cerimonial");
+                                monstroAtaque2(painel2, "velaCerimonial");
 
                             }
                         }
@@ -771,9 +795,12 @@ public class GameExemple extends JFrame {
             }
 
         }
-        else if(item.equals("Talisma")){
+        else if(item.equals("talisma")){
             if (playerHp<1){
-                dialogoText.setText("Game Over!");
+                dialogoText.setForeground(Color.RED);
+                dialogoText.setFont(new Font("Arial",Font.BOLD,120));
+                dialogoText.setBounds(350,200,650,350);
+                dialogoText.setText("GAME OVER!");
             }
             else if(contador4 == 0){
                 int danoAtual = playerDano;
@@ -797,7 +824,7 @@ public class GameExemple extends JFrame {
                             } else {
                                 contador4++;
                                 painel2.remove(dialogoText);
-                                monstroAtaque2(painel2, "Talisma");
+                                monstroAtaque2(painel2, "talisma");
 
                             }
                         }
@@ -826,7 +853,7 @@ public class GameExemple extends JFrame {
                                 dialogoText.setText(dialogoBatalhaTalisma.getDialogoAtual());
                             } else {
                                 painel2.remove(dialogoText);
-                                monstroAtaque2(painel2, "Talisma");
+                                monstroAtaque2(painel2, "talisma");
 
                             }
                         }
@@ -835,7 +862,7 @@ public class GameExemple extends JFrame {
 
             }
         }
-        else if(item.equals("KitMedico")){
+        else if(item.equals("kitMedico")){
             GerenciadorDeDialogos usoMedico = new GerenciadorDeDialogos(new String[]{
                     "Ao usar o item KIT MÉDICO você repara uma coisa, Yuki-Onna não tira os olhos dele.",
                     ""+nomeJogador+": Por que você olha tanto para isso, você quer?",
@@ -910,7 +937,6 @@ public class GameExemple extends JFrame {
                 continua.addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        System.out.println("exibirGuia3");
                         painel.remove(dialogoText);
                         exibirGuia3();
                     }
@@ -948,7 +974,7 @@ public class GameExemple extends JFrame {
                 });
             }
         }
-        else if(item.equals("Vela cerimonial")){
+        else if(item.equals("velaCerimonial")){
             if(monstroHP<1){
                 dialogoText.setText("Você derrotou Yuki-Onna!");
 
@@ -986,7 +1012,7 @@ public class GameExemple extends JFrame {
                                 dialogoVela.avancarDialogo();
                                 dialogoText.setText(dialogoVela.getDialogoAtual());
                             } else {
-                                loop2(painel, "Vela cerimonial");
+                                loop2(painel, "velaCerimonial");
 
                             }
                         }
@@ -996,7 +1022,7 @@ public class GameExemple extends JFrame {
             }
 
         }
-        else if(item.equals("Talisma")){
+        else if(item.equals("talisma")){
             if(monstroHP<1){
                 dialogoText.setText("Você derrotou Yuki-Onna!");
 
@@ -1033,7 +1059,7 @@ public class GameExemple extends JFrame {
                                 dialogoArmadura.avancarDialogo();
                                 dialogoText.setText(dialogoArmadura.getDialogoAtual());
                             } else {
-                                loop2(painel, "Talisma");
+                                loop2(painel, "talisma");
 
                             }
                         }
@@ -1056,7 +1082,7 @@ public class GameExemple extends JFrame {
     //-------------------------------------------------------------------------------------------------------------------------------------------------------
     public void playerAtaque3(JPanel painel2, String item){
         int playerDano = 0;
-        playerDano = new Random().nextInt(300);
+        playerDano = new Random().nextInt(100);
 
 
         dialogoText = new JTextArea();
@@ -1073,7 +1099,10 @@ public class GameExemple extends JFrame {
 
         if(item.equals("")){
             if (playerHp<1){
-                dialogoText.setText("Game Over!");
+                dialogoText.setForeground(Color.RED);
+                dialogoText.setFont(new Font("Arial",Font.BOLD,120));
+                dialogoText.setBounds(350,200,650,350);
+                dialogoText.setText("GAME OVER!");
 
             }
             else{
@@ -1107,9 +1136,12 @@ public class GameExemple extends JFrame {
             }
 
         }
-        else if(item.equals("Lampiao")){
+        else if(item.equals("lampiao")){
             if (playerHp<1){
-                dialogoText.setText("Game Over!");
+                dialogoText.setForeground(Color.RED);
+                dialogoText.setFont(new Font("Arial",Font.BOLD,120));
+                dialogoText.setBounds(350,200,650,350);
+                dialogoText.setText("GAME OVER!");
             }
             else if(contador5 == 0){
                 int fogo = 50;
@@ -1136,7 +1168,7 @@ public class GameExemple extends JFrame {
                             } else {
                                 contador5++;
                                 painel2.remove(dialogoText);
-                                monstroAtaque3(painel2, "Lampiao");
+                                monstroAtaque3(painel2, "lampiao");
 
                             }
                         }
@@ -1167,7 +1199,7 @@ public class GameExemple extends JFrame {
                                 dialogoText.setText(dialogoBatalhaLampiao.getDialogoAtual());
                             } else {
                                 painel2.remove(dialogoText);
-                                monstroAtaque3(painel2, "Lampiao");
+                                monstroAtaque3(painel2, "lampiao");
 
                             }
                         }
@@ -1176,9 +1208,12 @@ public class GameExemple extends JFrame {
             }
 
         }
-        else if(item.equals("Escudo")){
+        else if(item.equals("escudo")){
             if (playerHp<1){
-                dialogoText.setText("Game Over!");
+                dialogoText.setForeground(Color.RED);
+                dialogoText.setFont(new Font("Arial",Font.BOLD,120));
+                dialogoText.setBounds(350,200,650,350);
+                dialogoText.setText("GAME OVER!");
             }
             else if(contador6 == 0){
                 int danoAtual = playerDano;
@@ -1202,7 +1237,7 @@ public class GameExemple extends JFrame {
                             } else {
                                 contador6++;
                                 painel2.remove(dialogoText);
-                                monstroAtaque3(painel2, "Escudo");
+                                monstroAtaque3(painel2, "escudo");
 
                             }
                         }
@@ -1231,7 +1266,7 @@ public class GameExemple extends JFrame {
                                 dialogoText.setText(dialogoBatalhaEscudo.getDialogoAtual());
                             } else {
                                 painel2.remove(dialogoText);
-                                monstroAtaque3(painel2, "Escudo");
+                                monstroAtaque3(painel2, "escudo");
 
                             }
                         }
@@ -1240,7 +1275,7 @@ public class GameExemple extends JFrame {
 
             }
         }
-        else if(item.equals("SacoDeDinheiro")){
+        else if(item.equals("sacoDeDinheiro")){
             GerenciadorDeDialogos usoDinheiro = new GerenciadorDeDialogos(new String[]{
                     "Você usou o item SACO DE DINHEIRO e fez os olhos escuros e sombrios de Morozko brilharem!",
                     "Morozko: ME DÊ! Eu quero esse ouro, passa ele para cá, seu pirralho.",
@@ -1348,7 +1383,7 @@ public class GameExemple extends JFrame {
                 });
             }
         }
-        else if(item.equals("Lampiao")){
+        else if(item.equals("lampiao")){
             if(monstroHP<1){
                 dialogoText.setText("Você derrotou Worozko!");
 
@@ -1386,7 +1421,7 @@ public class GameExemple extends JFrame {
                                 dialogoLampiao.avancarDialogo();
                                 dialogoText.setText(dialogoLampiao.getDialogoAtual());
                             } else {
-                                loop3(painel, "Lampiao");
+                                loop3(painel, "lampiao");
 
                             }
                         }
@@ -1396,7 +1431,7 @@ public class GameExemple extends JFrame {
             }
 
         }
-        else if(item.equals("Escudo")){
+        else if(item.equals("escudo")){
             if(monstroHP<1){
                 dialogoText.setText("Você derrotou Worozko!");
 
@@ -1433,7 +1468,7 @@ public class GameExemple extends JFrame {
                                 dialogoArmadura.avancarDialogo();
                                 dialogoText.setText(dialogoArmadura.getDialogoAtual());
                             } else {
-                                loop3(painel, "Escudo");
+                                loop3(painel, "escudo");
 
                             }
                         }
