@@ -88,7 +88,7 @@ public class Guia3 extends MasterClass {
                             item1.setBounds(1, 170, itemIcon1.getIconWidth(), itemIcon1.getIconHeight());
 
                             JButton botao1 = new JButton("Continuar");
-                            botao1.setBounds(850, 300, 150, 70);
+                            botao1.setBounds(850, 680, 150, 70);
                             botao1.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
@@ -128,7 +128,7 @@ public class Guia3 extends MasterClass {
                             item2.setBounds(1, 170, itemIcon2.getIconWidth(), itemIcon2.getIconHeight());
 
                             JButton botao2 = new JButton("Continuar");
-                            botao2.setBounds(850, 460, 150, 70);
+                            botao2.setBounds(850, 680, 150, 70);
                             botao2.addActionListener(new ActionListener() {
                                 @Override
                                 public void actionPerformed(ActionEvent e) {
