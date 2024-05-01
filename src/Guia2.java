@@ -25,6 +25,7 @@ public class Guia2 extends MasterClass {
         game.inventoryLabel.setFont(new Font("Arial", Font.BOLD, 20));
 
         add(new SaveButton(game, this));
+        add(new SairButton(game));
         add(game.hpPlayerLabel);
         add(game.inventoryLabel);
         add(espada);

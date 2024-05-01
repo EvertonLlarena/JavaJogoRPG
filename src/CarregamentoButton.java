@@ -5,11 +5,11 @@ import java.awt.event.ActionEvent;
 
 public class CarregamentoButton extends JButton{
     public CarregamentoButton(GameExemple game, TelaInicial menu){
-        File savesFolder = new File("./Saves");
-        File[] saves = savesFolder.listFiles();
-
+        
         this.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                File savesFolder = new File("./Saves");
+                File[] saves = savesFolder.listFiles();
                 if(saves.length != 0){
                     menu.removeAll();
                     int y = 300;
